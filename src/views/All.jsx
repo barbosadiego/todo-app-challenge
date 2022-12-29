@@ -6,7 +6,6 @@ import ShowPage from '../styles/ShowPage';
 
 const All = () => {
   const { tasks } = useContext(TaskContext);
-  // console.log(tasks);
 
   return (
     <ShowPage>
