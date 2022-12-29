@@ -1,10 +1,12 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { TaskContext } from '../contexts/taskContext';
 
 const Input = () => {
   const { tasks, setTasks } = useContext(TaskContext);
   const [item, setItem] = useState('');
+  const inputRef = useRef();
+  if (inputRef.current) inputRef.current.focus();
 
   function handleChange(e) {
     setItem(e.target.value);
@@ -30,6 +32,7 @@ const Input = () => {
         placeholder="add details"
         onChange={handleChange}
         value={item}
+        ref={inputRef}
       />
       <button type="submit">Add</button>
     </StyledInput>
