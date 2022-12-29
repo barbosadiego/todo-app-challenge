@@ -28,7 +28,9 @@ const App = () => {
         </Routes>
       </main>
       <Footer>
-        <p>created by Diego Barbosa - devChallenges.io</p>
+        <p>
+          created by <span>Diego Barbosa</span> - devChallenges.io
+        </p>
       </Footer>
     </StyledHome>
   );
@@ -85,18 +87,23 @@ const ViewsLink = styled.ul`
     line-height: 17px;
     color: black;
     position: relative;
-    transition: all 0.3s;
+    border-bottom: 4px solid transparent;
 
-    &.active::after {
-      position: absolute;
-      top: 32px;
-      left: 0;
+    &::after {
       content: '';
-      display: block;
-      border-bottom: 4px solid rgba(47, 128, 237, 1);
-      border-radius: 4px 4px 0px 0px;
+      transition: all 0.3s;
+      top: 36px;
+      left: 0;
+      border-bottom: 4px solid transparent;
       max-width: 120px;
       width: 100%;
+      border-radius: 4px 4px 0px 0px;
+      position: absolute;
+      display: block;
+    }
+
+    &.active::after {
+      border-bottom-color: rgba(47, 128, 237, 1);
     }
   }
 `;
@@ -104,4 +111,11 @@ const ViewsLink = styled.ul`
 const Footer = styled.footer`
   text-align: center;
   color: rgba(169, 169, 169, 1);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+
+  span {
+    font-weight: 700;
+  }
 `;
