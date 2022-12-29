@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import Item from '../components/Item';
 import { TaskContext } from '../contexts/taskContext';
 import ShowPage from '../styles/ShowPage';
-import deleteIcon from '../assets/delete.svg';
 
 const Completed = () => {
   const { tasks } = useContext(TaskContext);
