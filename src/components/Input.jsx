@@ -1,14 +1,36 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
+import { TaskContext } from '../contexts/taskContext';
 
 const Input = () => {
+  const { tasks, setTasks } = useContext(TaskContext);
+  const [item, setItem] = useState('');
+
+  function handleChange(e) {
+    setItem(e.target.value);
+  }
+
   function handleSubmit(e) {
     e.preventDefault();
+    setTasks([
+      ...tasks,
+      {
+        id: Date.now(),
+        title: item,
+        completed: false,
+      },
+    ]);
+    setItem('');
   }
 
   return (
     <StyledInput onSubmit={handleSubmit}>
-      <input type="text" placeholder="add details" />
+      <input
+        type="text"
+        placeholder="add details"
+        onChange={handleChange}
+        value={item}
+      />
       <button type="submit">Add</button>
     </StyledInput>
   );
