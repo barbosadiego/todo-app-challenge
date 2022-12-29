@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import Input from '../components/Input';
+import { TaskContext } from '../contexts/taskContext';
 import ShowPage from '../styles/ShowPage';
 
 const All = () => {
-  return <ShowPage>All</ShowPage>;
+  const { initialTasks } = useContext(TaskContext);
+  console.log(initialTasks);
+
+  return (
+    <ShowPage>
+      <Input />
+    </ShowPage>
+  );
 };
 
 export default All;
