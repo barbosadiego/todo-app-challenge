@@ -5,15 +5,14 @@ import { TaskContext } from '../contexts/taskContext';
 import ShowPage from '../styles/ShowPage';
 
 const All = () => {
-  const { initialTasks } = useContext(TaskContext);
-  console.log(initialTasks);
-  // console.log(Date.now());
+  const { tasks } = useContext(TaskContext);
+  console.log(tasks);
 
   return (
     <ShowPage>
       <Input />
-      {initialTasks.length &&
-        initialTasks.map((item) => (
+      {tasks.length > 0 &&
+        tasks.map((item) => (
           <Item key={item.id} description={item.title} id={item.id} />
         ))}
     </ShowPage>
