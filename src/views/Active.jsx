@@ -1,7 +1,8 @@
 import React from 'react';
+import ShowPage from '../styles/ShowPage';
 
 const Active = () => {
-  return <div>Active</div>;
+  return <ShowPage>Active</ShowPage>;
 };
 
 export default Active;

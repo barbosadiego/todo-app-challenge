@@ -1,7 +1,8 @@
 import React from 'react';
+import ShowPage from '../styles/ShowPage';
 
 const All = () => {
-  return <div>All</div>;
+  return <ShowPage>All</ShowPage>;
 };
 
 export default All;
