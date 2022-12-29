@@ -6,15 +6,13 @@ import ShowPage from '../styles/ShowPage';
 
 const All = () => {
   const { tasks } = useContext(TaskContext);
-  console.log(tasks);
+  // console.log(tasks);
 
   return (
     <ShowPage>
       <Input />
       {tasks.length > 0 &&
-        tasks.map((item) => (
-          <Item key={item.id} description={item.title} id={item.id} />
-        ))}
+        tasks.map((item) => <Item key={item.id} item={item} />)}
     </ShowPage>
   );
 };
