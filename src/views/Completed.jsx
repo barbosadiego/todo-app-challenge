@@ -10,9 +10,10 @@ const Completed = () => {
   return (
     <ShowPage>
       {tasks &&
-        tasks.map((item) => (
-          <Item key={item.id} item={item} deleteBtn={true} />
-        ))}
+        tasks.map((item) => {
+          if (item.completed)
+            return <Item key={item.id} item={item} deleteBtn={true} />;
+        })}
       {tasks.length > 0 && (
         <Button onClick={() => setTasks([])}>
           <svg
