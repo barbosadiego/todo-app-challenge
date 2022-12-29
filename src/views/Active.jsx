@@ -11,7 +11,9 @@ const Active = () => {
     <ShowPage>
       <Input />
       {tasks.length > 0 &&
-        tasks.map((item) => <Item key={item.id} item={item} />)}
+        tasks.map((item) => {
+          if (!item.completed) return <Item key={item.id} item={item} />;
+        })}
     </ShowPage>
   );
 };
