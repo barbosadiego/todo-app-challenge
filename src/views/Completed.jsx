@@ -47,12 +47,14 @@ const Button = styled.button`
   line-height: 15px;
   cursor: pointer;
   border-radius: 4px;
+  position: absolute;
+  right: 0px;
+  transition: 0.3s;
 
-  & > div {
-    width: 23px;
-    height: 23px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  @media screen and (min-width: 1000px) {
+    &:hover {
+      background-color: rgba(235, 87, 87, 0.9);
+      box-shadow: 0px 0px 0px 4px rgba(235, 87, 87, 0.3);
+    }
   }
 `;
