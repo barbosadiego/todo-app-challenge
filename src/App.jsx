@@ -48,6 +48,7 @@ const StyledHome = styled.section`
 
   * {
     box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
   }
 
   main {
