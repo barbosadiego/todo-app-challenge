@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Routes, Route, Link, NavLink } from 'react-router-dom';
+import { Routes, Route, NavLink } from 'react-router-dom';
 import All from './views/All';
 import Active from './views/Active';
 import Completed from './views/Completed';
