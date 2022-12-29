@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, Link, NavLink } from 'react-router-dom';
 import All from './views/All';
 import Active from './views/Active';
 import Completed from './views/Completed';
@@ -10,9 +10,15 @@ const App = () => {
     <StyledHome>
       <Title>#todo</Title>
       <ViewsLink>
-        <Link to="/">All</Link>
-        <Link to="/active">Active</Link>
-        <Link to="/completed">Completed</Link>
+        <li>
+          <NavLink to="/">All</NavLink>
+        </li>
+        <li>
+          <NavLink to="/active">Active</NavLink>
+        </li>
+        <li>
+          <NavLink to="/completed">Completed</NavLink>
+        </li>
       </ViewsLink>
       <main>
         <Routes>
@@ -34,6 +40,7 @@ const StyledHome = styled.section`
   display: flex;
   flex-direction: column;
   max-width: 700px;
+  width: 100%;
   height: 100vh;
   margin: 0 auto;
 
@@ -51,19 +58,46 @@ const Title = styled.h1`
   font-size: 36px;
   line-height: 42px;
   text-align: center;
+  margin-bottom: 30px;
 `;
 
-const ViewsLink = styled.div`
+const ViewsLink = styled.ul`
+  padding: 0;
   display: flex;
   justify-content: space-around;
+  border-bottom: 1px solid rgba(189, 189, 189, 1);
+  padding-bottom: 18px;
+
+  & li {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+    transition: all 0.3s;
+  }
 
   & a {
+    display: inline-block;
+    width: 120px;
     font-family: 'Montserrat', sans-serif;
     text-decoration: none;
     font-weight: 600;
     font-size: 14px;
     line-height: 17px;
     color: black;
+    position: relative;
+    transition: all 0.3s;
+
+    &.active::after {
+      position: absolute;
+      top: 32px;
+      left: 0;
+      content: '';
+      display: block;
+      border-bottom: 4px solid rgba(47, 128, 237, 1);
+      border-radius: 4px 4px 0px 0px;
+      max-width: 120px;
+      width: 100%;
+    }
   }
 `;
 
