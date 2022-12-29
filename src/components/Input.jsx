@@ -19,6 +19,7 @@ export default Input;
 const StyledInput = styled.form`
   display: flex;
   gap: 25px;
+  margin-bottom: 33px;
 
   input {
     flex: 1;
