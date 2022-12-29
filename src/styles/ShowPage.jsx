@@ -21,4 +21,5 @@ const showLeft = keyframes`
 
 const StyledShowPage = styled.section`
   animation: ${showLeft} 0.3s forwards;
+  padding: 0px 20px;
 `;
