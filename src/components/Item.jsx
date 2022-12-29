@@ -1,11 +1,37 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
+import { TaskContext } from '../contexts/taskContext';
 
-const Item = ({ description, id }) => {
+const Item = ({ item }) => {
+  const { tasks, setTasks } = useContext(TaskContext);
+
+  function handleClick(e) {
+    const id = e.target.id;
+    const tempTasks = tasks.map((item) => {
+      if (item.id == id) {
+        return {
+          ...item,
+          completed: !item.completed,
+        };
+      }
+
+      return item;
+    });
+
+    setTasks(tempTasks);
+  }
+
   return (
     <StyledItem>
-      <input type="checkbox" name={id} id={id} />
-      <label htmlFor={id}>{description}</label>
+      <input
+        type="checkbox"
+        name={item.id}
+        id={item.id}
+        onClick={(e) => handleClick(e)}
+        checked={item.completed}
+        readOnly
+      />
+      <label htmlFor={item.id}>{item.title}</label>
     </StyledItem>
   );
 };
