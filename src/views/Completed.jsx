@@ -5,12 +5,13 @@ import { TaskContext } from '../contexts/taskContext';
 import ShowPage from '../styles/ShowPage';
 
 const Completed = () => {
-  const { tasks, setTasks } = useContext(TaskContext);
+  const { tasks, setTasks, saveData } = useContext(TaskContext);
   const tasksDone = tasks.filter((item) => item.completed);
 
   function handleDeleteTasks() {
     const tempTasks = tasks.filter((item) => !item.completed);
     setTasks(tempTasks);
+    saveData(tempTasks);
   }
 
   return (
