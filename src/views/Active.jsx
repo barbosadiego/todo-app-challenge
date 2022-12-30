@@ -6,14 +6,13 @@ import ShowPage from '../styles/ShowPage';
 
 const Active = () => {
   const { tasks } = useContext(TaskContext);
+  const activeTasks = tasks.filter((item) => !item.completed);
 
   return (
     <ShowPage>
       <Input />
-      {tasks.length > 0 &&
-        tasks.map((item) => {
-          if (!item.completed) return <Item key={item.id} item={item} />;
-        })}
+      {activeTasks.length > 0 &&
+        activeTasks.map((item) => <Item key={item.id} item={item} />)}
     </ShowPage>
   );
 };
