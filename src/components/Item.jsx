@@ -4,7 +4,7 @@ import { TaskContext } from '../contexts/taskContext';
 import deleteIcon from '../assets/delete.svg';
 
 const Item = ({ item, deleteBtn = false }) => {
-  const { tasks, setTasks } = useContext(TaskContext);
+  const { tasks, setTasks, saveData } = useContext(TaskContext);
 
   function handleClick(e) {
     const id = e.target.id;
@@ -20,12 +20,14 @@ const Item = ({ item, deleteBtn = false }) => {
     });
 
     setTasks(tempTasks);
+    saveData(tempTasks);
   }
 
   function handleDelete() {
     const id = item.id;
     const tempTasks = tasks.filter((item) => item.id !== id);
     setTasks(tempTasks);
+    saveData(tempTasks);
   }
 
   return (
