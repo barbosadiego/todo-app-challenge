@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { TaskContext } from '../contexts/taskContext';
 
 const Input = () => {
-  const { tasks, setTasks } = useContext(TaskContext);
+  const { tasks, setTasks, saveData } = useContext(TaskContext);
   const [item, setItem] = useState('');
   const inputRef = useRef();
   if (inputRef.current) inputRef.current.focus();
@@ -14,14 +14,16 @@ const Input = () => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    setTasks([
+    const taskItem = [
       ...tasks,
       {
         id: Date.now(),
         title: item,
         completed: false,
       },
-    ]);
+    ];
+    setTasks(taskItem);
+    saveData(taskItem);
     setItem('');
   }
 
