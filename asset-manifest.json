@@ -1,11 +1,11 @@
 {
   "files": {
-    "main.js": "/todo-app-challenge/static/js/main.600d9869.js",
+    "main.js": "/todo-app-challenge/static/js/main.4188b501.js",
     "index.html": "/todo-app-challenge/index.html",
     "static/media/delete.svg": "/todo-app-challenge/static/media/delete.5d96acceec39d00b033edb95576021d3.svg",
-    "main.600d9869.js.map": "/todo-app-challenge/static/js/main.600d9869.js.map"
+    "main.4188b501.js.map": "/todo-app-challenge/static/js/main.4188b501.js.map"
   },
   "entrypoints": [
-    "static/js/main.600d9869.js"
+    "static/js/main.4188b501.js"
   ]
 }
