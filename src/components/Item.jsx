@@ -22,6 +22,12 @@ const Item = ({ item, deleteBtn = false }) => {
     setTasks(tempTasks);
   }
 
+  function handleDelete() {
+    const id = item.id;
+    const tempTasks = tasks.filter((item) => item.id !== id);
+    setTasks(tempTasks);
+  }
+
   return (
     <StyledItem>
       <div>
@@ -36,7 +42,7 @@ const Item = ({ item, deleteBtn = false }) => {
         <label htmlFor={item.id}>{item.title}</label>
       </div>
       {deleteBtn && (
-        <Button>
+        <Button onClick={handleDelete}>
           <img src={deleteIcon} alt="delete Button" />
         </Button>
       )}
