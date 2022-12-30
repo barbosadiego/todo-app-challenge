@@ -6,16 +6,21 @@ import ShowPage from '../styles/ShowPage';
 
 const Completed = () => {
   const { tasks, setTasks } = useContext(TaskContext);
+  const tasksDone = tasks.filter((item) => item.completed);
+
+  function handleDeleteTasks() {
+    const tempTasks = tasks.filter((item) => !item.completed);
+    setTasks(tempTasks);
+  }
 
   return (
     <ShowPage>
-      {tasks &&
-        tasks.map((item) => {
-          if (item.completed)
-            return <Item key={item.id} item={item} deleteBtn={true} />;
+      {tasksDone &&
+        tasksDone.map((item) => {
+          return <Item key={item.id} item={item} deleteBtn={true} />;
         })}
-      {tasks.length > 0 && (
-        <Button onClick={() => setTasks([])}>
+      {tasksDone.length > 0 ? (
+        <Button onClick={handleDeleteTasks}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="20"
@@ -26,8 +31,9 @@ const Completed = () => {
           </svg>
           delete all
         </Button>
+      ) : (
+        <p>No items to show.</p>
       )}
-      {tasks.length === 0 && <p>No items to show.</p>}
     </ShowPage>
   );
 };
